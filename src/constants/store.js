@@ -1,0 +1,1 @@
+export const BASIC_LOADING = "BASIC_LOADING";
