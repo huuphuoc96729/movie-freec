@@ -49,14 +49,6 @@ const SearchIconWrapper = styled('div')(({theme}) => ({
 }));
 
 class PageContainer extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  async componentDidMount() {
-    await this.props.onInit(this.props.location);
-  }
-
   render() {
     return (
       <Fragment>
@@ -70,32 +62,36 @@ class PageContainer extends React.Component {
   }
 
   header = () => {
-    const {onChangeSearch, filter, onChangeFilter} = this.props;
-
+    const {onChangeSearch, filter, onChangeFilter, history, location} = this.props;
+    const {pathname} = location;
     return (
       <div className="header-page">
         <AppBar position="fixed">
           <Container className="p-0">
             <Toolbar>
               <IconButton
+                className='cursor-pointer'
                 size="large"
                 edge="start"
                 color="inherit"
                 aria-label="open drawer"
+                onClick = {() => history.push('/')}
               >
                 <MenuIcon/>
               </IconButton>
               <Typography
+                className='cursor-pointer'
                 variant="h6"
                 noWrap
                 component="div"
+                onClick = {() => history.push('/')}
                 sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
               >
                 PHIM NEW
               </Typography>
               <Search style={{display: "line-flex"}}>
                 <SearchIconWrapper>
-                  <SearchIcon onClick={() => onChangeSearch(filter.search)}/>
+                  <SearchIcon onClick={() => onChangeSearch(filter.search, pathname, history)}/>
                 </SearchIconWrapper>
                 <StyledInputBase
                   value={filter.search || ''}
@@ -103,7 +99,7 @@ class PageContainer extends React.Component {
                   inputProps={{'aria-label': 'search'}}
                   onChange={(e) => onChangeFilter(e.target.value)}
                   onKeyDown={e => {
-                    if (e.keyCode === 13) onChangeSearch(e.target.value)
+                    if (e.keyCode === 13) onChangeSearch(e.target.value, pathname, history)
                   }}
                 />
               </Search>
@@ -111,8 +107,6 @@ class PageContainer extends React.Component {
           </Container>
         </AppBar>
       </div>
-
-
     )
   }
 }

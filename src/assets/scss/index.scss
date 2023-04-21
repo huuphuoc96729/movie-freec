@@ -3,9 +3,10 @@ body {
   overflow-y: scroll;
   margin: 0 !important;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  //font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  //'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  //sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: text;
@@ -25,10 +26,14 @@ body {
   }
 }
 
+.border-radius-6px {
+  border-radius: 6px
+}
+
 .container-page {
   background: #151d25;
-  margin-top: 56px;
-  min-height: calc(100vh - 56px);
+  margin-top: 64px;
+  min-height: calc(100vh - 64px);
   .movies-list {
     .MuiCardContent-root {
 
@@ -92,7 +97,40 @@ body {
     //border: solid 1px white!important;
   }
 
-  .Mui-selected {
+  .MuiPagination-root .Mui-selected {
     background-color: #ffc107 !important;
+  }
+}
+
+.movie-page {
+  p {
+    margin-bottom: 0;
+    color: #cacaca;
+    display: flex;
+    align-items: center;
+
+    .title {
+      display: contents;
+      color: #afafaf;
+      font-size: 14px;
+      padding: 5px 0;
+    }
+    .content {
+      font-size: 14px;
+      color: #82b0da;
+      margin-left: 3px;
+    }
+  }
+
+  .MuiTabs-indicator {
+    background-color: #e6920e
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .container-page {
+    margin-top: 56px;
+    min-height: calc(100vh - 80px);
   }
 }

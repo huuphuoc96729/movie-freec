@@ -8,17 +8,14 @@ import CardMovie from "../../components/cardMoive";
 class Movies extends React.Component {
   constructor() {
     super();
-    this.state = {
-      movie_type: 'all'
-    }
   }
 
-  componentDidMount() {
-    this.props.onInit();
+  async componentDidMount() {
+    await this.props.onInit(this.props.location);
   }
 
   render() {
-    const {list, filter, onChangePaging, onChangeType} = this.props;
+    const {list, filter, onChangePaging, onChangeType, history} = this.props;
     if (!filter) return null;
 
     const html_no_found = (
@@ -48,8 +45,13 @@ class Movies extends React.Component {
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           {list.length ? list.map(data => {
             const {imdbID} = data;
+            const url = `/${imdbID}`;
             return (
-              <Grid key={imdbID} item xs={6} sm={4} md={3} lg={2} xl={2} className="position-relative">
+              <Grid
+                key={imdbID} item xs={6} sm={4} md={3} lg={2} xl={2}
+                className="position-relative cursor-pointer"
+                onClick = {() => history.push(url)}
+              >
                 <CardMovie data={data}/>
               </Grid>
             )

@@ -16,23 +16,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onInit: async (location) => {
-      const {pathname, search} = location;
-      if (!search) return;
-
-      const params = new URLSearchParams(search);
-      filter.page = params.get('page');
-      filter.s = params.get('s');
-      filter.type = params.get('type');
-
-      return await onLoad(dispatch, search.replace('?', ''), filter);
-    },
-    onChangeSearch: async (search) => {
+    onInit: () => {},
+    onChangeSearch: async (search, pathname, history) => {
       filter.page = 1;
       filter.s = search;
       filter.type = '';
       const params = `s=${search}&page=${1}`;
-      await onLoad(dispatch, params, filter);
+
+      if (pathname !== '/') {
+        history.push('/?' + params);
+      } else {
+        await onLoad(dispatch, params, filter);
+      }
     },
     onChangeFilter: (search) => {
       filter.search = search;
