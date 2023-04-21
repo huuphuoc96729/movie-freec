@@ -68,7 +68,7 @@ export const onLoad = async (dispatch, params, filter) => {
 
   setTimeout(() => {
     dispatch(basic_set_loading(false));
-  }, 500);
+  }, 200);
 }
 
 const CMovies = connect(mapStateToProps, mapDispatchToProps)(movies);

@@ -61,7 +61,7 @@ class Movie extends React.Component {
             </p>
             <p>
               <label className="content d-contents">
-                ({info.imdbRating}/5)
+                ({parseFloat(info.imdbRating/2).toFixed(1) }/5)
                 <Rating className="mr-4" precision={0.5} defaultValue={(parseFloat(info.imdbRating) / 2) || 5}/>
               </label>
             </p>
