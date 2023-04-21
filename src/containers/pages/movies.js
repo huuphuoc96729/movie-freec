@@ -27,7 +27,7 @@ class Movies extends React.Component {
       </p>
     );
 
-    if (!list.length && !filter.existed) return html_no_found;
+    if ((!list.length && !filter.existed) || !filter.s) return html_no_found;
 
     return (
       <div className="movies movies-list">

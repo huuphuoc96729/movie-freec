@@ -95,10 +95,10 @@ class PageContainer extends React.Component {
               </Typography>
               <Search style={{display: "line-flex"}}>
                 <SearchIconWrapper>
-                  <SearchIcon onClick={() => onChangeSearch(filter.s)}/>
+                  <SearchIcon onClick={() => onChangeSearch(filter.search)}/>
                 </SearchIconWrapper>
                 <StyledInputBase
-                  value={filter.s || ''}
+                  value={filter.search || ''}
                   placeholder="Search…"
                   inputProps={{'aria-label': 'search'}}
                   onChange={(e) => onChangeFilter(e.target.value)}

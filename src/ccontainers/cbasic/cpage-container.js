@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
       await onLoad(dispatch, params, filter);
     },
     onChangeFilter: (search) => {
-      filter.s = search;
+      filter.search = search;
       dispatch(movie_set_filter(filter));
     }
   }
