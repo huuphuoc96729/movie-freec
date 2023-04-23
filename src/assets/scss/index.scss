@@ -35,20 +35,9 @@ body {
   margin-top: 64px;
   min-height: calc(100vh - 64px);
   .movies-list {
-    .MuiCardContent-root {
-
-    }
-    .MuiCard-root {
-      background: #202a34;
-    }
-    .MuiCardContent-root {
-
-    }
     .group-filter {
       display: inline-grid;
     }
-    //style={{paddingTop: "30%", textAlign: 'center', color: 'white'}}
-
   }
   .no-found {
     width: 100%;
@@ -58,7 +47,32 @@ body {
     top: 40%;
     right: 0;
   }
+  //MuiButtonBase-root
+  ul .MuiPaginationItem-root {
+    color: white !important;
+    //border: solid 1px white!important;
+  }
 
+  [button].MuiPaginationItem-root {
+    color: white !important;
+    //border: solid 1px white!important;
+  }
+
+  .MuiPagination-root .Mui-selected {
+    background-color: #ffc107 !important;
+  }
+}
+
+.card-movie {
+  &:hover {
+    box-shadow: 0 0 2px 2px #e6920e85 !important;
+  }
+  .MuiCard-root {
+    background: #202a34;
+    .MuiCardMedia-root {
+      object-fit: unset
+    }
+  }
   .title {
     font-size: 1rem;
     color: #e6920e;
@@ -67,7 +81,6 @@ body {
     -webkit-line-clamp: 1;
     -webkit-box-fle: 1;
     -webkit-box-orient: vertical
-
   }
   .year {
     color: #8a9eaf;
@@ -83,22 +96,7 @@ body {
     right: 0;
     border: 1px solid #1b2a3900;
     background-size: 200% 100%;
-    //background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
     background-image: linear-gradient(to right, #ff00cc 0%, #333399 51%, #ff00cc 100%);
-  }
-  //MuiButtonBase-root
-  ul .MuiPaginationItem-root {
-    color: white !important;
-    //border: solid 1px white!important;
-  }
-
-  [button].MuiPaginationItem-root {
-    color: white !important;
-    //border: solid 1px white!important;
-  }
-
-  .MuiPagination-root .Mui-selected {
-    background-color: #ffc107 !important;
   }
 }
 
@@ -124,6 +122,10 @@ body {
 
   .MuiTabs-indicator {
     background-color: #e6920e
+  }
+
+  .MuiRating-root .MuiRating-iconEmpty {
+    color: #faaf007a
   }
 
 }
