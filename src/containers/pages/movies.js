@@ -42,7 +42,7 @@ class Movies extends React.Component {
           </Select>
         </div>
 
-        <Grid container spacing={3} justifyContent="center" alignItems="center">
+        <Grid container spacing={2} justifyContent="center" alignItems="center">
           {list.length ? list.map(data => {
             const {imdbID} = data;
             const url = `/${imdbID}`;
