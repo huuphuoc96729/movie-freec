@@ -42,13 +42,13 @@ class Movies extends React.Component {
           </Select>
         </div>
 
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid container spacing={{xs: 2, sm:3, md:3, lg:2, xl:2}} justifyContent="center" alignItems="center">
           {list.length ? list.map(data => {
             const {imdbID} = data;
             const url = `/${imdbID}`;
             return (
               <Grid
-                key={imdbID} item xs={6} sm={4} md={3} lg={2} xl={2}
+                key={imdbID} item xs={6} sm={3.5} md={2.4} lg={2} xl={2}
                 className="position-relative cursor-pointer"
                 onClick = {() => history.push(url)}
               >

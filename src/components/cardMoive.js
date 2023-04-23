@@ -13,11 +13,11 @@ class CardMovie extends React.Component {
         <div className="type">
           {Type.charAt(0).toUpperCase() + Type.slice(1)}
         </div>
-        <Card className='text-center' sx={{height: '360px'}}>
+        <Card className='text-center' sx={{height: '340px'}}>
           <CardMedia
             component="img"
             alt=""
-            height="300px"
+            height="280px"
             image={Poster}
           />
           <CardContent className='p-2'>
